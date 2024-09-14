@@ -9,16 +9,15 @@ CREATE DATABASE IF NOT EXISTS users_db;
 -- Utiliser la base de données users_db (nouvelle base de données pour le service d'authentification)
 USE users_db;
 
--- Création de la table users pour la gestion des utilisateurs
-CREATE TABLE IF NOT EXISTS users (
-    UserID INT AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(255) NOT NULL UNIQUE,
-    Password VARCHAR(255) NOT NULL,
-    Role VARCHAR(50) NOT NULL
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL
 );
 
 -- Insertion de quelques utilisateurs
-INSERT INTO users (Username, Password, Role) VALUES
+INSERT INTO users (username, password_hash, Role) VALUES
 ('admin', 'password', 'admin'),
 ('user1', 'userpass', 'user'),
 ('user2', 'userpass', 'user');
